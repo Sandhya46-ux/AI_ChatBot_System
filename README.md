@@ -1,0 +1,128 @@
+
+# AI Chatbot System (Java GUI + MySQL)
+
+## Project Overview
+This project is an AI Chatbot system built using *Java Swing* for the GUI and *MySQL* for storing chat history and bot responses. The chatbot responds to user queries based on predefined keywords stored in the database and logs conversations for future reference.
+
+---
+
+## Project Structure
+
+JavaProject/
+├─ lib/ # MySQL connector jar
+│ └─ mysql-connector-j-9.5.0.jar
+├─ src/ # Java source code
+│ ├─ ChatbotGUI.java # GUI interface
+│ ├─ BotLogic.java # Bot logic and response handling
+│ ├─ DatabaseHandler.java# Database operations
+│ └─ Message.java # Message object (optional)
+└─ README.md # This file
+
+
+---
+
+## Requirements
+
+- Java JDK 17+
+- MySQL 8+
+- MySQL Connector JAR (mysql-connector-j-9.5.0.jar)
+- IDE or terminal to run Java programs
+
+---
+
+## Database Setup
+
+1. *Create the database:*
+
+```sql
+CREATE DATABASE ai_chatbot_db;
+USE ai_chatbot_db;
+
+
+CREATE TABLE bot_responses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    keyword VARCHAR(50),
+    reply VARCHAR(255)
+);
+
+CREATE TABLE chat_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user VARCHAR(50),
+    message VARCHAR(255)
+);
+
+INSERT INTO bot_responses(keyword, reply) VALUES
+('hi', 'Hello! How can I help you?'),
+('hello', 'Hi there!'),
+('how are you', 'I am a bot, always fine!'),
+('your name', 'I am ChatBot3000!'),
+('who created you', 'I was created by Pratishtha Verma.'),
+('joke', 'Why did the computer go to the doctor? Because it caught a virus!'),
+('bye', 'Goodbye! Have a nice day!'),
+('thank you', 'You?re welcome!');
+
+## How to Compile and Run
+
+Open terminal in the src folder:
+
+cd "C:\java project\src"
+
+
+Compile Java files:
+
+javac -cp "../lib/mysql-connector-j-9.5.0.jar" DatabaseHandler.java BotLogic.java Message.java ChatbotGUI.java
+
+
+Run the GUI:
+
+java -cp ".;../lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+
+## Features
+
+Java Swing GUI for interactive chatbot interface
+
+MySQL database integration for storing chat history and bot responses
+
+Dynamic responses based on keywords
+
+Logs all user and bot messages
+
+## screenshot
+![alt text](image-1.png)
+
+##Notes
+
+Make sure the MySQL server is running before launching the chatbot
+
+Update username/password in DatabaseHandler.java if your MySQL credentials differ
+
+## Authors
+
+- *Pratishtha Verma* – Team Leader  
+- Tanvi Singh  
+- Sandhya Kumari
+
+
+
+
+
+
+
+<!-- ## Getting Started
+
+Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+
+## Folder Structure
+
+The workspace contains two folders by default, where:
+
+- `src`: the folder to maintain sources
+- `lib`: the folder to maintain dependencies
+
+Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+
+> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+
+## Dependency Management
+
+The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies). -->
