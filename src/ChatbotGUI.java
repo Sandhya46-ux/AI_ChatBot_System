@@ -1,4 +1,4 @@
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import javax.swing.*;
 
@@ -35,6 +35,7 @@ public class ChatbotGUI extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
         add(inputPanel, BorderLayout.SOUTH);
 
+        // Events
         sendButton.addActionListener(e -> sendMessage());
         userTextField.addActionListener(e -> sendMessage());
 
@@ -42,6 +43,8 @@ public class ChatbotGUI extends JFrame {
     }
 
     private void sendMessage() {
+        System.out.println("sendMessage triggered");
+
         String userMessage = userTextField.getText().trim();
 
         if (!userMessage.isEmpty()) {
@@ -50,6 +53,7 @@ public class ChatbotGUI extends JFrame {
             String botReply = bot.getReply(userMessage);
             chatArea.append("Bot: " + botReply + "\n\n");
 
+            // Save to database
             DatabaseHandler.saveMessage("User", userMessage);
             DatabaseHandler.saveMessage("Bot", botReply);
 
@@ -58,6 +62,10 @@ public class ChatbotGUI extends JFrame {
     }
 
     public static void main(String[] args) {
+
+        System.out.println("Testing DB connection...");
+System.out.println(DatabaseHandler.getConnection());
+
         SwingUtilities.invokeLater(ChatbotGUI::new);
     }
 }
