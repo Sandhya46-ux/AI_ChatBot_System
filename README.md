@@ -31,12 +31,19 @@ JavaProject/
 ---
 
 ## Database Setup
+1. Create the database:
 
+<<<<<<< HEAD
 1. *Create the database:*
 
 ```sql
 CREATE DATABASE message;
 USE message;
+=======
+
+   CREATE DATABASE message;
+   USE message;
+>>>>>>> 1f5672c (Updated readme)
 
 CREATE TABLE bot_responses (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -45,7 +52,7 @@ CREATE TABLE bot_responses (
 );
 
 CREATE TABLE chat_history (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+ id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(50),
     message VARCHAR(255)
 );
@@ -69,24 +76,37 @@ INSERT INTO bot_responses (keyword, reply) VALUES
 
 SELECT * FROM bot_responses;
 DESCRIBE bot_responses;
+<<<<<<< HEAD
 SELECT keyword, reply FROM bot_responses;
 
+=======
+SELECT keyword, reply FROM bot_responses
+>>>>>>> 1f5672c (Updated readme)
 
 ## How to Compile and Run
 
 Open terminal in the src folder:
 
+<<<<<<< HEAD
 cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
+=======
+cd "C:\Users\SANDHYA KUMARI\JavaProject\AI_Chabot_System\src"
+>>>>>>> 1f5672c (Updated readme)
 
 
 Compile Java files:
 
+<<<<<<< HEAD
 javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
+=======
+javac -cp ".;../lib/mysql-connector-j-9.5.0.jar" *.java
+>>>>>>> 1f5672c (Updated readme)
 
 
 Run the GUI:
 
 java -cp "bin;lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+
 
 ## Features
 
