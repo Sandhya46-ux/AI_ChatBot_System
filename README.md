@@ -88,19 +88,27 @@ SELECT keyword, reply FROM bot_responses
 Open terminal in the src folder:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
 =======
 cd "C:\Users\SANDHYA KUMARI\JavaProject\AI_Chabot_System\src"
 >>>>>>> 1f5672c (Updated readme)
+=======
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
+>>>>>>> e611a2a (INITIAL COMMIT)
 
 
 Compile Java files:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
 =======
 javac -cp ".;../lib/mysql-connector-j-9.5.0.jar" *.java
 >>>>>>> 1f5672c (Updated readme)
+=======
+javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
+>>>>>>> e611a2a (INITIAL COMMIT)
 
 
 Run the GUI:

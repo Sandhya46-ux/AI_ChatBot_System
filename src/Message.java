@@ -1,21 +1,44 @@
+
 public class Message {
+    private String sender;
+    private String content;
 
-    private String userMessage;
-    private String botResponse;
-
-    public Message(String userMessage, String botResponse) {
-        this.userMessage = userMessage;
-        this.botResponse = botResponse;
+    public Message(String sender, String content) {
+        this.sender = sender;
+        this.content = content;
     }
 
-    public String getUserMessage() {
-        return userMessage;
+    public String getSender() {
+        return sender;
     }
 
-    public String getBotResponse() {
-        return botResponse;
+    public String getContent() {
+        return content;
     }
 }
+
+
+
+
+
+// public class Message {
+
+//     private String userMessage;
+//     private String botResponse;
+
+//     public Message(String userMessage, String botResponse) {
+//         this.userMessage = userMessage;
+//         this.botResponse = botResponse;
+//     }
+
+//     public String getUserMessage() {
+//         return userMessage;
+//     }
+
+//     public String getBotResponse() {
+//         return botResponse;
+//     }
+// }
 
 
 
