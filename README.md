@@ -74,19 +74,19 @@ SELECT keyword, reply FROM bot_responses;
 
 ## How to Compile and Run
 
-Open terminal in the src folder:
+Open terminal :
 
-cd "C:\Users\SANDHYA KUMARI\JavaProject\AI_Chabot_System\src"
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
 
 
 Compile Java files:
 
-javac -cp ".;../lib/mysql-connector-j-9.5.0.jar" *.java
+javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
 
 
 Run the GUI:
 
-java -cp ".;../lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+java -cp "bin;lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
 
 ## Features
 
