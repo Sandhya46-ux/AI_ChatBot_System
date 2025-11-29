@@ -34,6 +34,7 @@ JavaProject/
 1. Create the database:
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1. *Create the database:*
 
 ```sql
@@ -44,6 +45,11 @@ USE message;
    CREATE DATABASE message;
    USE message;
 >>>>>>> 1f5672c (Updated readme)
+=======
+
+   CREATE DATABASE message;
+   USE message;
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 CREATE TABLE bot_responses (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -77,16 +83,21 @@ INSERT INTO bot_responses (keyword, reply) VALUES
 SELECT * FROM bot_responses;
 DESCRIBE bot_responses;
 <<<<<<< HEAD
+<<<<<<< HEAD
 SELECT keyword, reply FROM bot_responses;
 
 =======
 SELECT keyword, reply FROM bot_responses
 >>>>>>> 1f5672c (Updated readme)
+=======
+SELECT keyword, reply FROM bot_responses
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 ## How to Compile and Run
 
 Open terminal in the src folder:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
@@ -96,10 +107,14 @@ cd "C:\Users\SANDHYA KUMARI\JavaProject\AI_Chabot_System\src"
 =======
 cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
 >>>>>>> e611a2a (INITIAL COMMIT)
+=======
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 
 Compile Java files:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
@@ -109,6 +124,9 @@ javac -cp ".;../lib/mysql-connector-j-9.5.0.jar" *.java
 =======
 javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
 >>>>>>> e611a2a (INITIAL COMMIT)
+=======
+javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 
 Run the GUI:
