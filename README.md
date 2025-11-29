@@ -31,51 +31,108 @@ JavaProject/
 ---
 
 ## Database Setup
+1. Create the database:
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 1. *Create the database:*
 
 ```sql
-CREATE DATABASE ai_chatbot_db;
-USE ai_chatbot_db;
+CREATE DATABASE message;
+USE message;
+=======
 
+   CREATE DATABASE message;
+   USE message;
+>>>>>>> 1f5672c (Updated readme)
+=======
+
+   CREATE DATABASE message;
+   USE message;
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 CREATE TABLE bot_responses (
     id INT AUTO_INCREMENT PRIMARY KEY,
     keyword VARCHAR(50),
-    reply VARCHAR(255)
+    reply TEXT
 );
 
 CREATE TABLE chat_history (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+ id INT AUTO_INCREMENT PRIMARY KEY,
     user VARCHAR(50),
     message VARCHAR(255)
 );
 
-INSERT INTO bot_responses(keyword, reply) VALUES
-('hi', 'Hello! How can I help you?'),
-('hello', 'Hi there!'),
-('how are you', 'I am a bot, always fine!'),
-('your name', 'I am ChatBot3000!'),
-('who created you', 'I was created by Pratishtha Verma.'),
-('joke', 'Why did the computer go to the doctor? Because it caught a virus!'),
-('bye', 'Goodbye! Have a nice day!'),
-('thank you', 'You?re welcome!');
+INSERT INTO bot_responses (keyword, reply) VALUES
+('hi', 'Hello! How can I help you today?'),
+('hello', 'Hi there! What can I do for you?'),
+('hey', 'Hello! How are you?'),
+
+('who made you', 'I was created by Sandhya.'),
+('who created you', 'Sandhya created me.'),
+
+('your name', 'I am your AI Chatbot.'),
+
+('how are you', 'I am functioning perfectly! What about you?'),
+('what is your purpose', 'I am here to answer your questions.'),
+
+('bye', 'Goodbye! Talk to you later.'),
+('exit', 'Take care! Have a great day.');
+
+
+SELECT * FROM bot_responses;
+DESCRIBE bot_responses;
+<<<<<<< HEAD
+<<<<<<< HEAD
+SELECT keyword, reply FROM bot_responses;
+
+=======
+SELECT keyword, reply FROM bot_responses
+>>>>>>> 1f5672c (Updated readme)
+=======
+SELECT keyword, reply FROM bot_responses
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 ## How to Compile and Run
 
 Open terminal in the src folder:
 
-cd "C:\java project\src"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
+=======
+cd "C:\Users\SANDHYA KUMARI\JavaProject\AI_Chabot_System\src"
+>>>>>>> 1f5672c (Updated readme)
+=======
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
+>>>>>>> e611a2a (INITIAL COMMIT)
+=======
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 
 Compile Java files:
 
-javac -cp "../lib/mysql-connector-j-9.5.0.jar" DatabaseHandler.java BotLogic.java Message.java ChatbotGUI.java
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
+=======
+javac -cp ".;../lib/mysql-connector-j-9.5.0.jar" *.java
+>>>>>>> 1f5672c (Updated readme)
+=======
+javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
+>>>>>>> e611a2a (INITIAL COMMIT)
+=======
+javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
+>>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
 
 
 Run the GUI:
 
-java -cp ".;../lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+java -cp "bin;lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+
 
 ## Features
 
