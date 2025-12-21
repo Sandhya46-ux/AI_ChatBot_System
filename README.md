@@ -8,16 +8,27 @@ This project is an AI Chatbot system built using *Java Swing* for the GUI and *M
 
 ## Project Structure
 
-JavaProject/
-├─ lib/ # MySQL connector jar
-│ └─ mysql-connector-j-9.5.0.jar
-├─ src/ # Java source code
-│ ├─ ChatbotGUI.java # GUI interface
-│ ├─ BotLogic.java # Bot logic and response handling
-│ ├─ DatabaseHandler.java# Database operations
-│ └─ Message.java # Message object (optional)
-└─ README.md # This file
+AI_Chatbot_System/
+├── src/
+│   ├── ChatbotGUI.java
+│   ├── BotLogic.java
+│   ├── DatabaseHandler.java
+│   └── ChatServlet.java
+├── WEB-INF/
+│   └── classes/
+├── lib/
+├── index.html
+├── README.md
+└── root.session.sql
 
+This project fulfills requirements related to:
+
+Java programming
+GUI development
+Event handling
+Client–server architecture
+Database integration
+Software modularity
 
 ---
 
@@ -113,27 +124,154 @@ javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
 Run the GUI:
 
 java -cp "bin;lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+Project Overview
+
+The AI Chatbot System is a Java-based application that demonstrates both desktop GUI interaction and web-based communication using modern Java technologies.
+
+The project is divided into two execution modes:
+
+GUI-based Chatbot (Primary & Fully Functional)
+
+Web-based Chatbot (Innovative Extension)
+
+🚀 Features
+
+Java Swing–based graphical user interface
+
+Event-driven message handling
+
+Centralized chatbot logic
+
+JDBC-based database connectivity (MySQL)
+
+Modular and object-oriented design
+
+Optional web-based chatbot using Java Servlets
+
+🖥️ GUI-Based Chatbot (Working Version)
+🔹 Description
+
+The GUI chatbot is implemented using Java Swing.
+Users can type messages in a desktop window and receive intelligent responses from the chatbot.
+
+This version demonstrates:
+
+GUI programming
+
+Event handling
+
+Object-Oriented Programming
+
+Integration with backend logic
+
+🔹 How to Compile (GUI Version)
+
+Open Command Prompt and navigate to the src directory:
+
+cd src
 
 
+Compile the required files:
 
-## Features
+javac -encoding UTF-8 ChatbotGUI.java BotLogic.java DatabaseHandler.java
 
-Java Swing GUI for interactive chatbot interface
+🔹 How to Run (GUI Version)
+java ChatbotGUI
 
-MySQL database integration for storing chat history and bot responses
 
-Dynamic responses based on keywords
+✅ A desktop window titled “AI Chatbot” will appear.
+Type a message and click Send to interact with the chatbot.
+-----------------------------------------------------------
 
-Logs all user and bot messages
+🌐 Web-Based Chatbot (Innovative Extension)
+🔹 Description
 
-## screenshot
-![alt text](image-1.png)
+As an innovative enhancement, the project also includes a web-based chatbot implemented using:
 
-##Notes
+Java Servlets
 
-Make sure the MySQL server is running before launching the chatbot
+HTML + JavaScript frontend
 
-Update username/password in DatabaseHandler.java if your MySQL credentials differ
+Apache Tomcat server
+
+This allows chatbot interaction through a web browser, demonstrating client–server communication.
+
+🔹 Web-Based Architecture
+
+index.html acts as the frontend interface
+
+JavaScript sends POST requests to a servlet
+
+Servlet processes the input using the same chatbot logic
+
+Response is sent back to the browser dynamically
+----------------------------------------------
+
+1️⃣ Start Apache Tomcat Server
+
+Open Command Prompt and run:
+
+cd C:\apache-tomcat-9.0.113\bin
+startup.bat
+
+
+✔ Server starts on port 8080
+
+2️⃣ Verify Tomcat is Running
+
+Open a browser and visit:
+
+http://localhost:8080/
+
+
+If the Tomcat homepage appears, the server is running successfully.
+
+3️⃣ Open the Chatbot Web Page
+
+In the browser, open:
+
+http://localhost:8080/AI_CHATBOT_SYSTEM/index.html
+
+
+This loads the chatbot’s HTML interface.
+
+4️⃣ Interact with the Chatbot
+
+Type a message in the input box
+
+Click the Send button
+
+The message is sent to the backend servlet using an HTTP POST request
+
+The chatbot response is displayed dynamically on the web page
+
+5️⃣ Stop Apache Tomcat Server (After Use)
+
+When finished, stop the server using:
+
+cd C:\apache-tomcat-9.0.113\bin
+shutdown.bat
+
+🔄 Internal Request Flow (Behind the Scenes)
+User → Browser (index.html)
+     → JavaScript fetch()
+     → ChatServlet (Tomcat)
+     → BotLogic (Java)
+     → Response sent back to browser
+
+🎓 Academic Note
+
+This web-based execution demonstrates:
+
+Client–server architecture
+
+HTTP request handling using Servlets
+
+Integration of frontend and backend components
+
+Reuse of chatbot logic across platforms
+
+-----------------------------------------------
 
 ## Authors
 
@@ -144,24 +282,3 @@ Update username/password in DatabaseHandler.java if your MySQL credentials diffe
 
 
 
-
-
-
-<!-- ## Getting Started
-
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
-## Folder Structure
-
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies). -->
