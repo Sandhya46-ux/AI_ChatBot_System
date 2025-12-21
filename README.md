@@ -103,27 +103,21 @@ SELECT keyword, reply FROM bot_responses
 =======
 SELECT keyword, reply FROM bot_responses
 >>>>>>> e611a2a341ba555c48fefa7f24f84248b08c97ec
-
+--------------------------------------------------------------
 ## How to Compile and Run
 
 Open terminal :
 
-
-cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System"
-
-
+cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System\src"
 
 Compile Java files:
 
-
-
-javac -cp "lib/mysql-connector-j-9.5.0.jar" -d bin src\*.java
-
-
+java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" ChatbotGUI
 
 Run the GUI:
 
-java -cp "bin;lib/mysql-connector-j-9.5.0.jar" ChatbotGUI
+cd C:\apache-tomcat-9.0.113\webapps\AI_ChatBot_System
+------------------------------------------------------------
 Project Overview
 
 The AI Chatbot System is a Java-based application that demonstrates both desktop GUI interaction and web-based communication using modern Java technologies.
