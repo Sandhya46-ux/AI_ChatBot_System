@@ -112,11 +112,15 @@ cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System\src"
 
 Compile Java files:
 
-java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" ChatbotGUI
+javac --release 17 ChatbotGUI.java BotLogic.java DatabaseHandler.java Message.java
+
 
 Run the GUI:
 
-cd C:\apache-tomcat-9.0.113\webapps\AI_ChatBot_System
+java ChatbotGUI
+
+The gui window will open and then you can type e.g., "hello"
+
 ------------------------------------------------------------
 Project Overview
 
