@@ -111,13 +111,16 @@ Open terminal :
 cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System\src"
 
 Compile Java files:
+java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" ChatbotGUI
 
-javac --release 17 ChatbotGUI.java BotLogic.java DatabaseHandler.java Message.java
+USE THE ABOVE COMMANDS ON CMD TO RUN THE GUI AND WRITE THE COMMANDS THAT IS GIVEN IN THE DATABSE TABLE.
 
+
+-----javac --release 17 ChatbotGUI.java BotLogic.java DatabaseHandler.java Message.java
 
 Run the GUI:
 
-java ChatbotGUI
+java ChatbotGUI--------
 
 The gui window will open and then you can type e.g., "hello"
 
