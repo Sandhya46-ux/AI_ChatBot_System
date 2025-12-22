@@ -77,19 +77,44 @@ CREATE TABLE chat_history (
 INSERT INTO bot_responses (keyword, reply) VALUES
 ('hi', 'Hello! How can I help you today?'),
 ('hello', 'Hi there! What can I do for you?'),
-('hey', 'Hello! How are you?'),
+('hey', 'Hey! Nice to meet you '),
+('good morning', 'Good morning! Hope you have a great day c'),
+('good evening', 'Good evening! How was your day?'),
 
-('who made you', 'I was created by Sandhya.'),
-('who created you', 'Sandhya created me.'),
+('your name', 'I am an AI Chatbot created using Java.'),
+('who are you', 'I am your friendly AI Chatbot '),
+('who made you', 'I was created by Sandhya as a Java project.'),
+('who created you', 'Sandhya developed me using Java and MySQL.'),
 
-('your name', 'I am your AI Chatbot.'),
+('what is java', 'Java is an object oriented programming language used in many applications.'),
+('tell me about java', 'Java is a popular programming language known for portability.'),
+('explain java', 'Java follows the write once run anywhere principle.'),
 
-('how are you', 'I am functioning perfectly! What about you?'),
-('what is your purpose', 'I am here to answer your questions.'),
+('what is oops', 'OOPS stands for Object Oriented Programming System.'),
+('explain oops', 'OOPS concepts include encapsulation, inheritance, polymorphism and abstraction.'),
 
-('bye', 'Goodbye! Talk to you later.'),
-('exit', 'Take care! Have a great day.');
+('what is database', 'A database is used to store and manage data efficiently.'),
+('explain database', 'Databases allow organized storage and fast retrieval of data.'),
 
+('can you help me', 'Yes, I can help you with studies, Java and this project.'),
+('i need help', 'Sure. Tell me what you need help with.'),
+('help me', 'I am here to help. Ask your question.'),
+
+('i am stressed', 'Take a deep breath. Break your work into small tasks.'),
+('i am confused', 'Do not worry. Ask your question step by step.'),
+('i am nervous', 'Stay calm and trust your preparation.'),
+
+('what should i do now', 'Focus on your priorities and complete one task at a time.'),
+('daily routine', 'Plan your day with study, rest and revision.'),
+('time table', 'Create a timetable and follow it consistently.'),
+
+('clear chat', 'Restart the application to clear the chat history.'),
+('restart', 'Please restart the chatbot application.'),
+('start', 'Chatbot is ready. Ask your question.'),
+
+('ok thanks', 'You are welcome. Happy to help.'),
+('thanks a lot', 'Glad I could help you.'),
+('that helps', 'Happy to hear that.');
 
 SELECT * FROM bot_responses;
 DESCRIBE bot_responses;
@@ -113,7 +138,7 @@ cd "C:\Users\SANDHYA KUMARI\AI_Chatbot_System\AI_ChatBot_System\src"
 Compile Java files:
 java -cp ".;..\lib\mysql-connector-j-9.5.0.jar" ChatbotGUI
 
-USE THE ABOVE COMMANDS ON CMD TO RUN THE GUI AND WRITE THE COMMANDS THAT IS GIVEN IN THE DATABSE TABLE.
+USE THE ABOVE COMMANDS ON CMD TO RUN THE GUI AND WRITE THE kwywords THAT IS GIVEN IN THE DATABSE bot_responses TABLE.
 
 
 -----javac --release 17 ChatbotGUI.java BotLogic.java DatabaseHandler.java Message.java
