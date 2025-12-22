@@ -5,12 +5,14 @@ import java.sql.ResultSet;
 
 public class DatabaseHandler {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/message";
+    private static final String URL =
+        "jdbc:mysql://localhost:3306/message?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USER = "root";
     private static final String PASSWORD = "852714sandhya";
 
     public static Connection getConnection() {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
@@ -18,140 +20,46 @@ public class DatabaseHandler {
         return null;
     }
 
-    public static String getReply(String keyword) {
-        String reply = null;
-        String sql = "SELECT reply FROM bot_responses WHERE keyword = ?";
+    public static String getReply(String userMessage) {
 
-        try (Connection con = getConnection();
-             PreparedStatement pst = con.prepareStatement(sql)) {
+        if (userMessage == null || userMessage.trim().isEmpty()) {
+            return "Please type something.";
+        }
 
-            pst.setString(1, keyword.trim().toLowerCase());
-            ResultSet rs = pst.executeQuery();
+        String input = userMessage.toLowerCase().trim();
 
-            if (rs.next()) {
-                reply = rs.getString("reply");
-            } else {
-                reply = "Sorry, I didn't understand that.";
+        try (Connection con = getConnection()) {
+
+            // Step 1: Exact keyword match
+            String sql1 =
+                "SELECT reply FROM bot_responses " +
+                "WHERE LOWER(keyword) = ? LIMIT 1";
+
+            PreparedStatement ps1 = con.prepareStatement(sql1);
+            ps1.setString(1, input);
+            ResultSet rs1 = ps1.executeQuery();
+            if (rs1.next()) {
+                return rs1.getString("reply");
+            }
+
+            // Step 2: Keyword inside sentence
+            String sql2 =
+                "SELECT reply FROM bot_responses " +
+                "WHERE ? LIKE CONCAT('%', LOWER(keyword), '%') " +
+                "ORDER BY LENGTH(keyword) DESC LIMIT 1";
+
+            PreparedStatement ps2 = con.prepareStatement(sql2);
+            ps2.setString(1, input);
+            ResultSet rs2 = ps2.executeQuery();
+            if (rs2.next()) {
+                return rs2.getString("reply");
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            return "Database error occurred.";
         }
 
-        return reply;
-    }
-
-    // TEST MAIN
-    public static void main(String[] args) {
-        try {
-            Connection con = getConnection();
-            if (con != null) {
-                System.out.println("Database connected successfully!");
-            } else {
-                System.out.println("Connection failed!");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        return "Sorry, I didn't understand that.";
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import java.sql.*;
-
-// public class DatabaseHandler {
-//     private static Connection con;
-
-//     public static Connection getConnection() {
-//         if (con == null) {
-//             try {
-//                 Class.forName("com.mysql.cj.jdbc.Driver");
-//                 Connection con = DriverManager.getConnection(
-//                     "jdbc:mysql://localhost:3306/message", "root", "852714sandhya");
-//                 System.out.println("Database connected!");
-//             } catch (Exception e) {
-//                 e.printStackTrace();
-//             }
-//         }
-//         return con;
-//     }
-
-//     public static void saveMessage(String user, String message) {
-//         try {
-//             String query = "INSERT INTO chat_history(user, message) VALUES(?, ?)";
-//             PreparedStatement ps = getConnection().prepareStatement(query);
-//             ps.setString(1, user);
-//             ps.setString(2, message);
-//             ps.executeUpdate();
-//         } catch(SQLException e) {
-//             e.printStackTrace();
-//         }
-//     }
-
-//     public static ResultSet getMessages() {
-//         try {
-//             Statement stmt = getConnection().createStatement();
-//             return stmt.executeQuery("SELECT * FROM chat_history");
-//         } catch(SQLException e) {
-//             e.printStackTrace();
-//             return null;
-//         }
-//     }
-// }
-
-
-
-
-
-
-// import java.sql.Connection;
-// import java.sql.DriverManager;
-// import java.sql.PreparedStatement;
-
-// public class DatabaseHandler {
-
-//     private static final String URL = "jdbc:mysql://localhost:3306/message";
-//     private static final String USER = "root";
-//     private static final String PASS = "852714sandhya"; // if you have password, put it here
-
-//     // Create a database connection
-//     public static Connection getConnection() {
-//         try {
-//             return DriverManager.getConnection(URL, USER, PASS);
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//             return null;
-//         }
-//     }
-
-//     // Save chat to database
-//     public static void saveMessage(String sender, String message) {
-//         try (Connection con = getConnection()) {
-//             if (con == null) return;
-
-//             String sql = "INSERT INTO chat_history(user, message) VALUES (?, ?)";
-//             PreparedStatement ps = con.prepareStatement(sql);
-//             ps.setString(1, sender);
-//             ps.setString(2, message);
-//             ps.executeUpdate();
-
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         }
-//     }
-// }
