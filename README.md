@@ -118,11 +118,11 @@ USE THE ABOVE COMMANDS ON CMD TO RUN THE GUI AND WRITE THE COMMANDS THAT IS GIVE
 
 -----javac --release 17 ChatbotGUI.java BotLogic.java DatabaseHandler.java Message.java
 
-Run the GUI:
+----Run the GUI:
 
-java ChatbotGUI--------
+----java ChatbotGUI--------
 
-The gui window will open and then you can type e.g., "hello"
+----The gui window will open and then you can type e.g., "hello"
 
 ------------------------------------------------------------
 Project Overview
